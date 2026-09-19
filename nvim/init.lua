@@ -5,7 +5,7 @@ vim.cmd("set shiftwidth=2")
 require("config.lazy")
 require("config.verilog")
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("bamboo")
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })

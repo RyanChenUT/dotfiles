@@ -4,13 +4,18 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 require("config.lazy")
 require("config.verilog")
+require("config.cpp")
+
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 vim.cmd.colorscheme("bamboo")
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>qq", ":qa<CR>", { desc = "Quit"})
-vim.keymap.set("n", "<leader><C-w>", ":wq<CR>", { desc = "Save Quit"})
+
+
+vim.keymap.set("i", "<C-z>", ":undo<CR>", {desc = "undo"})
+vim.keymap.set("i", "<C-z", ":redo<CR>", {desc = "redo"})
 
 -- number lines
 vim.opt.number = true
@@ -35,3 +40,5 @@ vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {
   desc = "Elaborate Warning",
 })
+
+vim.opt.clipboard = "unnamedplus"

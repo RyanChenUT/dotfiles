@@ -1,0 +1,13 @@
+[user]
+	name = RyanChenUT
+	email = ryanrchen@utexas.edu
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[push]
+	autoSetupRemote = true
+	
+[alias]
+    ac = "!git add -A && git commit -m"
+    uc = "!git add -u && git commit -m"
+    acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+    ucp = "!f() { git add -u && git commit -m \"$1\" && git push; }; f"

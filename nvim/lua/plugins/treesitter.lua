@@ -1,11 +1,12 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    version = "v0.9.3",
+    branch = "main",
+    version = false,
+    lazy = false,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
+      require("nvim-treesitter").install({
           "bash",
           "c",
           "cpp",
@@ -19,13 +20,18 @@ return {
           "markdown_inline",
           "tsx",
           "typescript",
-          "verilog",
+          "systemverilog",
           "vim",
           "vimdoc",
-        },
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          if pcall(vim.treesitter.start) then
+            vim.bo.indentexpr =
+              "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
       })
     end,
   },

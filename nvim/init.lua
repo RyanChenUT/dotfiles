@@ -15,7 +15,7 @@ vim.g.mapleader = " "
 
 
 vim.keymap.set("i", "<C-z>", ":undo<CR>", {desc = "undo"})
-vim.keymap.set("i", "<C-z", ":redo<CR>", {desc = "redo"})
+vim.keymap.set("i", "<C-y>", ":redo<CR>", {desc = "redo"})
 
 -- number lines
 vim.opt.number = true
